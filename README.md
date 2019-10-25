@@ -15,3 +15,4 @@
 - JSF
 - CSS
 - Primefaces 
+- JavaScript
