@@ -9,7 +9,7 @@ xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
 <h:body>
 
-    <p:dialog header="Введите ваши данные" widgetVar="dlg2" modal="true"  visible="true" >
+    <p:dialog  header="Введите ваши данные" widgetVar="dlg2" modal="true"  visible="true" closable="false">
             <h:form>
                 <h:outputText value="Введите логин"/>
                 <p:inputText value="#{loginBean.login}"/>
@@ -20,8 +20,11 @@ xmlns:p="http://primefaces.org/ui">
                 <br/>
                 <br/>
                 <p:commandButton value="Войти" action="#{loginBean.loginIn()}"/>
-            </h:form>
+                <br/>
+                <br/>
 
+            </h:form>
+        <p:link outcome="registration" >Зарегестрироваться</p:link>
     </p:dialog>
 
 

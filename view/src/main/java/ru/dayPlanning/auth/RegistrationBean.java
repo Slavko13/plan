@@ -5,7 +5,9 @@ import ru.dayPlanning.ejb.UserManagerBean;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
 
 @Named
@@ -72,6 +74,14 @@ public class RegistrationBean implements Serializable {
 
     public void createUser() {
         clients = userManagerBean.createUser(first_name, second_name, password, login, email);
+        if (clients != null) {
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/view/auth/login.xhtml");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }

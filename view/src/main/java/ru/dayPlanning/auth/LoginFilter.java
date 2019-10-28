@@ -26,9 +26,9 @@ public class LoginFilter implements Filter {
 
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpServletRequest request = (HttpServletRequest) servletRequest;
+        loginBean.setPageAfterLogin(request.getContextPath() + "/main/home.xhtml");
 
         if (loginBean.isLoggedIn()) {
-            loginBean.setPageAfterLogin(request.getContextPath() + "/main/home.xhtml");
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }
