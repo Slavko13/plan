@@ -8,13 +8,12 @@ import java.util.List;
 @Entity
 @Table(name = "clients")
 public class Clients {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private String login;
     private String first_name;
     private String second_name;
     private String password;
-    private String login;
     private String email;
     private String age;
 
@@ -29,13 +28,7 @@ public class Clients {
     @OneToMany(fetch =FetchType.EAGER, mappedBy = "clients")
     private List<ClientsInHome> clients_InHomeList;
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getFirst_name() {
         return first_name;

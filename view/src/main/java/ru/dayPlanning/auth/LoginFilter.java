@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.http.HttpResponse;
 
-@WebFilter(urlPatterns = "/main/")
+@WebFilter(urlPatterns = "/main/*")
 public class LoginFilter implements Filter {
 
     @Inject
@@ -32,7 +32,7 @@ public class LoginFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }
-
+            response.sendRedirect(request.getContextPath() + "/auth/login.xhtml");
     }
 
     @Override
