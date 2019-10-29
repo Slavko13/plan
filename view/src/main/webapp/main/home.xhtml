@@ -8,9 +8,10 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>home</h:head>
 <h:body>
+    <ui:param name="userLogin" value="#{loginBean.login}" />
     <h:form>
         <h:inputText value = "#{homeBean.address}" />
-        <p:commandButton value="Да это мой дом"  action="#{homeBean.createHome()}"/>
+        <p:commandButton value="Да это мой дом"  action="#{homeBean.createHome(loginBean.login)}"/>
     </h:form>
 
     <h:dataTable value="#{homeBean.homes}" var="home">

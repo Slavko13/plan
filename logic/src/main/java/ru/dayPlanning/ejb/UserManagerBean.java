@@ -24,4 +24,8 @@ public class UserManagerBean {
         entityManager.persist(clients);
         return clients;
     }
+    public Clients existedUser(String login) {
+        Clients client = entityManager.find(Clients.class, login);
+        return client;
+    }
 }

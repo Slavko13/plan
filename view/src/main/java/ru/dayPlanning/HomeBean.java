@@ -17,6 +17,7 @@ import java.util.List;
 public class HomeBean implements Serializable {
     private String address;
     private Home home;
+    private String login;
 
 
     @EJB
@@ -30,14 +31,23 @@ public class HomeBean implements Serializable {
         this.address = address;
     }
 
-    public void createHome() {
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public Home createHome(String login) {
         String temp;
         temp = getAddress();
-        home = homeManagerBean.createHome(temp);
-
+        home = homeManagerBean.createHome(temp, login);
+        return home;
     }
 
     public List<Home> getHomes() {
-       return homeManagerBean.getHomes();
+       return homeManagerBean.getUserHomes();
     }
+
 }
