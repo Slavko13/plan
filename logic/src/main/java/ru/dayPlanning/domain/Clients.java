@@ -29,6 +29,9 @@ public class Clients {
     private List<ClientsInHome> clients_InHomeList;
 
 
+    @OneToOne
+    private Role role;
+
 
     public String getFirst_name() {
         return first_name;

@@ -18,6 +18,7 @@ public class HomeBean implements Serializable {
     private String address;
     private Home home;
     private String login;
+    private String homeName;
 
 
     @EJB
@@ -39,15 +40,23 @@ public class HomeBean implements Serializable {
         this.login = login;
     }
 
+    public String getHomeName() {
+        return homeName;
+    }
+
+    public void setHomeName(String homeName) {
+        this.homeName = homeName;
+    }
+
     public Home createHome(String login) {
         String temp;
         temp = getAddress();
-        home = homeManagerBean.createHome(temp, login);
+        home = homeManagerBean.createHome(temp, login, homeName);
         return home;
     }
 
     public List<Home> getHomes() {
-       return homeManagerBean.getUserHomes();
+       return homeManagerBean.getUserHomes(login);
     }
 
 }

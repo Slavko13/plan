@@ -9,6 +9,9 @@ public class ClientsInHome {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+
+
+
     @ManyToOne
     private Home home;
 

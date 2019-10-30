@@ -41,9 +41,10 @@ public class HomeManagerBean {
         return true;
     }
 
-    public Home createHome(String address, String login) {
+    public Home createHome(String address, String login, String homeName) {
         Home home = new Home();
         home.setAddress(address);
+        home.setHomeName(homeName);
         entityManager.persist(home);
         addToUser(login, home.getId());
         return home;

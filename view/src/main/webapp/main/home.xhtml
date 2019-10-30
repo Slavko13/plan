@@ -10,16 +10,32 @@
 <h:body>
     <ui:param name="userLogin" value="#{loginBean.login}" />
     <h:form>
-        <h:inputText value = "#{homeBean.address}" />
-        <p:commandButton value="Да это мой дом"  action="#{homeBean.createHome(loginBean.login)}"/>
+        <h:outputText value="Введите наименование вашего дома" />
+        <br/>
+        <p:inputText value="#{homeBean.homeName}"/>
+        <br/>
+        <br/>
+        <h:outputText value="Введите адресс вашего дома или выберите на карте" />
+        <br/>
+        <p:inputText value = "#{homeBean.address}" />
+        <br/>
+        <br/>
+        <p:commandButton value="Да это мой дом"  action="#{homeBean.createHome(homeBean.login)}" update="addedHomes"/>
+        <br/>
+        <br/>
     </h:form>
 
-    <h:dataTable value="#{homeBean.homes}" var="home">
-        <h:column>
+    <p:panel>
+    <p:dataTable value="#{homeBean.homes}" var="home" id="addedHomes">
+        <p:column headerText="HomeName">
+            <h:outputText value="#{home.homeName}" />
+        </p:column>
+        <p:column headerText="Adress">
             <h:outputText value="#{home.address}" />
-        </h:column>
-    </h:dataTable>
+        </p:column>
 
+    </p:dataTable>
+    </p:panel>
 
 </h:body>
 </html>

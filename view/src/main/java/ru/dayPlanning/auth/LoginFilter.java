@@ -1,5 +1,7 @@
 package ru.dayPlanning.auth;
 
+import ru.dayPlanning.HomeBean;
+
 import javax.inject.Inject;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -15,6 +17,9 @@ public class LoginFilter implements Filter {
     @Inject
     private LoginBean loginBean;
 
+    @Inject
+    private HomeBean homeBean;
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         //
@@ -29,6 +34,7 @@ public class LoginFilter implements Filter {
         loginBean.setPageAfterLogin(request.getContextPath() + "/main/home.xhtml");
 
         if (loginBean.isLoggedIn()) {
+            homeBean.setLogin(loginBean.getLogin());
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }

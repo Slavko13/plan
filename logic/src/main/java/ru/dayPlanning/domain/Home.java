@@ -9,6 +9,7 @@ public class Home {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    private String homeName;
     private String address;
 
     @OneToMany(fetch =FetchType.EAGER, mappedBy = "home")
@@ -32,6 +33,14 @@ public class Home {
 
     public List<ClientsInHome> getUser_inHomeList() {
         return home_inHomeList;
+    }
+
+    public String getHomeName() {
+        return homeName;
+    }
+
+    public void setHomeName(String homeName) {
+        this.homeName = homeName;
     }
 
     public void setUser_inHomeList(List<ClientsInHome> user_inHomeList) {
