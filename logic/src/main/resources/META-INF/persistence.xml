@@ -7,6 +7,8 @@
 		<class>ru.dayPlanning.domain.Clients</class>
 		<class>ru.dayPlanning.domain.ClientsInHome</class>
 		<class>ru.dayPlanning.domain.Home</class>
+		<class>ru.dayPlanning.domain.Role</class>
+		<class>ru.dayPlanning.domain.TimeTable</class>
 		<properties>
 
 			<property name="javax.persistence.schema-generation.database.action" value="update"/>

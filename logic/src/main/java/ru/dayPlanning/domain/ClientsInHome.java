@@ -6,11 +6,8 @@ import javax.persistence.*;
 @Entity
 public class ClientsInHome {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-
-
 
     @ManyToOne
     private Home home;

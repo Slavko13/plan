@@ -2,6 +2,7 @@ package ru.dayPlanning.domain;
 
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.util.List;
 
 
@@ -27,6 +28,10 @@ public class Clients {
 
     @OneToMany(fetch =FetchType.EAGER, mappedBy = "clients")
     private List<ClientsInHome> clients_InHomeList;
+
+
+    @OneToMany(mappedBy = "clientsTime")
+    private List<TimeTable> timeTables;
 
 
     @OneToOne

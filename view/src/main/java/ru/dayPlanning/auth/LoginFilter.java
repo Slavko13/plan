@@ -5,11 +5,9 @@ import ru.dayPlanning.HomeBean;
 import javax.inject.Inject;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.http.HttpResponse;
 
 @WebFilter(urlPatterns = "/main/*")
 public class LoginFilter implements Filter {
@@ -34,7 +32,6 @@ public class LoginFilter implements Filter {
         loginBean.setPageAfterLogin(request.getContextPath() + "/main/home.xhtml");
 
         if (loginBean.isLoggedIn()) {
-            homeBean.setLogin(loginBean.getLogin());
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }

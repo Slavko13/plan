@@ -7,8 +7,14 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.ServletContext;
+import javax.servlet.http.Part;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 
@@ -17,8 +23,8 @@ import java.util.List;
 public class HomeBean implements Serializable {
     private String address;
     private Home home;
-    private String login;
     private String homeName;
+
 
 
     @EJB
@@ -30,14 +36,6 @@ public class HomeBean implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getHomeName() {
@@ -55,7 +53,7 @@ public class HomeBean implements Serializable {
         return home;
     }
 
-    public List<Home> getHomes() {
+    public List<Home> getHomes(String login) {
        return homeManagerBean.getUserHomes(login);
     }
 

@@ -20,13 +20,15 @@
         <p:inputText value = "#{homeBean.address}" />
         <br/>
         <br/>
-        <p:commandButton value="Да это мой дом"  action="#{homeBean.createHome(homeBean.login)}" update="addedHomes"/>
+        <p:commandButton value="Да это мой дом"  action="#{homeBean.createHome(loginBean.login)}" update="addedHomes"/>
         <br/>
         <br/>
     </h:form>
 
+
+
     <p:panel>
-    <p:dataTable value="#{homeBean.homes}" var="home" id="addedHomes">
+    <p:dataTable value="#{homeBean.getHomes(loginBean.login)}" var="home" id="addedHomes">
         <p:column headerText="HomeName">
             <h:outputText value="#{home.homeName}" />
         </p:column>
