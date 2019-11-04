@@ -6,33 +6,31 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
         xmlns:p="http://primefaces.org/ui">
-<h:head></h:head>
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</h:head>
 <h:body>
 
         <p:dialog header="Введите ваши данные" widgetVar="dlg2" modal="true"  visible="true" closable="false">
-            <h:form>
-                <h:outputText value="Введите фамилию:"/>
-                <p:inputText value="#{registrationBean.first_name}"/>
+            <form action="registration" method="post" >
+                <h2> Введите фамилию:</h2>
+                <input type="text" name="first_name" value="${requestScope.first_name}"/>
                 <br/>
+                <h2> Введите имя:</h2>
+                <input type="text" name="second_name" value="${requestScope.second_name}"/>
                 <br/>
-                <h:outputText value="Введите имя:"/>
-                <p:inputText value="#{registrationBean.second_name}"/>
+                <h2> Введите login:</h2>
+                <input type="text" name="login" value="${requestScope.login}"/>
+                <p>${requestScope.message}</p>
                 <br/>
+                <h2> Введите email:</h2>
+                <input type="text" name="email" value="${requestScope.email}"/>
                 <br/>
-                <h:outputText value="Введите login:"/>
-                <p:inputText value="#{registrationBean.login}"/>
+                <h2> Введите пароль:</h2>
+                <input type="text" name="password" />
                 <br/>
-                <br/>
-                <h:outputText value="Введите email:"/>
-                <p:inputText value="#{registrationBean.email}"/>
-                <br/>
-                <br/>
-                <h:outputText value="Введите пароль:"/>
-                <p:inputText value="#{registrationBean.password}"/>
-                <br/>
-                <br/>
-                <p:commandButton value="Зарегестрируй" action="#{registrationBean.createUser()}"/>
-            </h:form>
+                <button type="submit" >Зарегайся</button>
+            </form>
         </p:dialog>
 
 

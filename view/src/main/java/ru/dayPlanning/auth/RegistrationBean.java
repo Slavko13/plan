@@ -74,18 +74,19 @@ public class RegistrationBean implements Serializable {
         this.email = email;
     }
 
-    public void createUser() {
-        if (userManagerBean.existedUser(login) == null) {
-            clients = userManagerBean.createUser(first_name, second_name, password, login, email);
+    public boolean createUser() {
+        if (userManagerBean.existedUser(login) != null) {
+            return false;
         }
-        if (clients != null) {
-            try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/view/auth/login.xhtml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
+        clients = userManagerBean.createUser(first_name, second_name, password, login, email);
+//        if (clients != null) {
+//            try {
+//                FacesContext.getCurrentInstance().getExternalContext().redirect("/view/auth/login.xhtml");
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+        return true;
     }
 
 }

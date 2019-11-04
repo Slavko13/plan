@@ -55,6 +55,8 @@ public class LoginBean implements Serializable {
     private boolean checkFields() {
         return login == null || password == null;
     }
+
+
     public void loginIn() {
         if (checkFields()) {
             loggedIn = false;
